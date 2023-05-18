@@ -1,0 +1,90 @@
+
+//   const [name, setName] = useState("");
+//   const [email, setEmail] = useState("");
+//   const [mobile, setMobile] = useState("");
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+
+//     // Validate the form data
+//     if (name.length < 5) {
+//       alert("Name must be at least 5 characters long");
+//       return;
+//     }
+
+//     if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+//       alert("Invalid email address");
+//       return;
+//     }
+
+//     if (mobile.length > 10 || !/^\d{10}$/.test(mobile)) {
+//       alert("Mobile number must be 10 digits long and only contain numbers");
+//       return;
+//     }
+
+//     // Add the form data to the list
+//     const listItems = [...listItems, {
+//       name,
+//       email,
+//       mobile,
+//     }];
+
+//     // Clear the form fields
+//     setName("");
+//     setEmail("");
+//     setMobile("");
+//   };
+
+//   const listItems = useState([]);
+
+//   useEffect(() => {
+//     // Get the list of items from the API
+//     fetch("/api/list")
+//       .then((response) => response.json())
+//       .then((data) => {
+//         listItems.push(...data);
+//       });
+//   }, []);
+
+//   return (
+//     <div>
+//       <form onSubmit={handleSubmit}>
+//         <input
+//           type="text"
+//           placeholder="Name"
+//           value={name}
+//           onChange={(e) => setName(e.target.value)}
+//         />
+//         <input
+//           type="email"
+//           placeholder="Email"
+//           value={email}
+//           onChange={(e) => setEmail(e.target.value)}
+//         />
+//         <input
+//           type="text"
+//           placeholder="Mobile"
+//           value={mobile}
+//           onChange={(e) => setMobile(e.target.value)}
+//         />
+//         <button type="submit">Submit</button>
+//       </form>
+//       <ul>
+//         {listItems.map((item) => (
+//           <li key={item.id}>
+//             <div>
+//               {item.name}
+//               <button onClick={() => {
+//                 setName(item.name);
+//                 setEmail(item.email);
+//                 setMobile(item.mobile);
+//               }}>Edit</button>
+//               <button onClick={() => {
+//                 listItems = listItems.filter((i) => i.id !== item.id);
+//               }}>Delete</button>
+//             </div>
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
